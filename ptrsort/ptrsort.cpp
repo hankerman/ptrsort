@@ -35,13 +35,16 @@ int main()
     int countA = 0, countB = 0;
 
     fill(arrA, size);
-    fill(arrB, size2);
+    fill(arrB, size2);  
+
     cout << "arrA - ";
     print(arrA, size);
     cout << "arrB - ";
     print(arrB, size2);
+
     BubleSort(arrA, size);
     BubleSort(arrB, size2);
+
     cout << "arrA - ";
     print(arrA, size);
     cout << "arrB - ";
