@@ -27,7 +27,7 @@ void BubleSort(int arr[], int size) {
 
 int main()
 {
-    
+    srand(time(NULL));
     const int size = 5;
     int arrA[size], arrB[size], arrC[size * 2];
     int* ptra = arrA + (size - 1);
@@ -35,11 +35,15 @@ int main()
 
     fill(arrA, size);
     fill(arrB, size);
+    cout << "arrA - ";
     print(arrA, size);
+    cout << "arrB - ";
     print(arrB, size);
     BubleSort(arrA, size);
     BubleSort(arrB, size);
+    cout << "arrA - ";
     print(arrA, size);
+    cout << "arrB - ";
     print(arrB, size);
 
     for (int i = (size * 2) - 1; i >= 0; i--) {
@@ -52,7 +56,7 @@ int main()
             ptrb--;
         }
     }
-
+    cout << "arrC - ";
     print(arrC, size * 2);
 
 }
