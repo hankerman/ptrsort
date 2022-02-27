@@ -28,35 +28,50 @@ void BubleSort(int arr[], int size) {
 int main()
 {
     srand(time(NULL));
-    const int size = 5;
-    int arrA[size], arrB[size], arrC[size * 2];
-    int* ptra = arrA + (size - 1);
-    int* ptrb = arrB + (size - 1);
+    const int size = 10, size2 = 20;
+    int arrA[size], arrB[size2], arrC[size + size2];
+    int* ptra = arrA;
+    int* ptrb = arrB;
+    int countA = 0, countB = 0;
 
     fill(arrA, size);
-    fill(arrB, size);
+    fill(arrB, size2);
     cout << "arrA - ";
     print(arrA, size);
     cout << "arrB - ";
-    print(arrB, size);
+    print(arrB, size2);
     BubleSort(arrA, size);
-    BubleSort(arrB, size);
+    BubleSort(arrB, size2);
     cout << "arrA - ";
     print(arrA, size);
     cout << "arrB - ";
-    print(arrB, size);
+    print(arrB, size2);
 
-    for (int i = (size * 2) - 1; i >= 0; i--) {
-        if (*ptra > *ptrb) {
-            arrC[i] = *ptra;
-            ptra--;
+    for (int i = 0; i < size + size2; i++) {
+        if (*ptra < *ptrb) {
+            if (countA >= size) {
+                arrC[i] = *ptrb;
+            }
+            else {
+                arrC[i] = *ptra;
+                ptra++;
+                countA++;
+            }
+            
         }
         else {
-            arrC[i] = *ptrb;
-            ptrb--;
+            if (countB >= size2) {
+                arrC[i] = *ptra;
+            }
+            else {
+                arrC[i] = *ptrb;
+                ptrb++;
+                countB++;
+            }
+            
         }
     }
     cout << "arrC - ";
-    print(arrC, size * 2);
+    print(arrC, size + size2);
 
 }
